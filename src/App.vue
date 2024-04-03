@@ -1,28 +1,44 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>FreshMart Online Grocery Shopping</h1>
+    <div class="items-box">
+    <ItemCard
+    v-for="(groceryItem, index) in groceryArray"
+    :groceryItem="groceryItem"
+    :key="index"/>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import groceryData from './data/grocery-data.json'
+import ItemCard from './components/ItemCard.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    ItemCard
+  },
+  data() {
+    return {
+      groceryArray: groceryData
+    }
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style lang="scss">
+.items-box {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+
+  @media (min-width: 480px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (min-width: 758px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }
 </style>

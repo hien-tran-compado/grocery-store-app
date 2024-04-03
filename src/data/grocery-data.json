@@ -1,0 +1,187 @@
+[
+  {
+    "image_url": "https://via.placeholder.com/150",
+    "name": "Apple",
+    "price": 0.5
+  },
+  {
+    "image_url": "https://via.placeholder.com/150",
+    "name": "Banana",
+    "price": 0.3
+  },
+  {
+    "image_url": "https://via.placeholder.com/150",
+    "name": "Orange",
+    "price": 0.4
+  },
+  {
+    "image_url": "https://via.placeholder.com/150",
+    "name": "Lemon",
+    "price": 0.25
+  },
+  {
+    "image_url": "https://via.placeholder.com/150",
+    "name": "Mango",
+    "price": 1.0
+  },
+  {
+    "image_url": "https://via.placeholder.com/150",
+    "name": "Pineapple",
+    "price": 1.5
+  },
+  {
+    "image_url": "https://via.placeholder.com/150",
+    "name": "Strawberry",
+    "price": 0.6
+  },
+  {
+    "image_url": "https://via.placeholder.com/150",
+    "name": "Blueberry",
+    "price": 0.8
+  },
+  {
+    "image_url": "https://via.placeholder.com/150",
+    "name": "Grapes",
+    "price": 1.2
+  },
+  {
+    "image_url": "https://via.placeholder.com/150",
+    "name": "Watermelon",
+    "price": 2.0
+  },
+  {
+    "image_url": "https://via.placeholder.com/150",
+    "name": "Tomato",
+    "price": 0.7
+  },
+  {
+    "image_url": "https://via.placeholder.com/150",
+    "name": "Cucumber",
+    "price": 0.6
+  },
+  {
+    "image_url": "https://via.placeholder.com/150",
+    "name": "Carrot",
+    "price": 0.5
+  },
+  {
+    "image_url": "https://via.placeholder.com/150",
+    "name": "Broccoli",
+    "price": 1.0
+  },
+  {
+    "image_url": "https://via.placeholder.com/150",
+    "name": "Lettuce",
+    "price": 0.8
+  },
+  {
+    "name": "Avocado",
+    "image_url": "https://via.placeholder.com/150",
+    "price": 1.50
+  },
+  {
+    "name": "Cereal (Oats)",
+    "image_url": "https://via.placeholder.com/150",
+    "price": 3.99
+  },
+  {
+    "name": "Yogurt (Plain)",
+    "image_url": "https://via.placeholder.com/150",
+    "price": 2.25
+  },
+  {
+    "name": "Pasta (Spaghetti)",
+    "image_url": "https://via.placeholder.com/150",
+    "price": 1.75
+  },
+  {
+    "name": "Rice (White)",
+    "image_url": "https://via.placeholder.com/150",
+    "price": 1.50
+  },
+  {
+    "name": "Bread (Whole Wheat)",
+    "image_url": "https://via.placeholder.com/150",
+    "price": 2.50
+  },
+  {
+    "name": "Milk (2%)",
+    "image_url": "https://via.placeholder.com/150",
+    "price": 3.00
+  },
+  {
+    "name": "Cheese (Cheddar)",
+    "image_url": "https://via.placeholder.com/150",
+    "price": 4.50
+  },
+  {
+    "name": "Eggs",
+    "image_url": "https://via.placeholder.com/150",
+    "price": 2.00
+  },
+  {
+    "name": "Chicken (Breast)",
+    "image_url": "https://via.placeholder.com/150",
+    "price": 5.00
+  },
+  {
+    "name": "Beef (Ground)",
+    "image_url": "https://via.placeholder.com/150",
+    "price": 6.00
+  },
+  {
+    "name": "Pork (Chops)",
+    "image_url": "https://via.placeholder.com/150",
+    "price": 4.00
+  },
+  {
+    "name": "Salmon (Filet)",
+    "image_url": "https://via.placeholder.com/150",
+    "price": 7.00
+  },
+  {
+    "name": "Tuna (Can)",
+    "image_url": "https://via.placeholder.com/150",
+    "price": 2.50
+  },
+  {
+    "name": "Shrimp (Frozen)",
+    "image_url": "https://via.placeholder.com/150",
+    "price": 8.00
+  },
+  {
+    "name": "Butter",
+    "image_url": "https://via.placeholder.com/150",
+    "price": 2.00
+  },
+  {
+    "name": "Olive Oil",
+    "image_url": "https://via.placeholder.com/150",
+    "price": 5.00
+  },
+  {
+    "image_url": "https://via.placeholder.com/150",
+    "name": "Onion",
+    "price": 0.4
+  },
+  {
+    "image_url": "https://via.placeholder.com/150",
+    "name": "Potato",
+    "price": 0.3
+  },
+  {
+    "image_url": "https://via.placeholder.com/150",
+    "name": "Bell Pepper",
+    "price": 0.9
+  },
+  {
+    "image_url": "https://via.placeholder.com/150",
+    "name": "Eggplant",
+    "price": 1.1
+  },
+  {
+    "image_url": "https://via.placeholder.com/150",
+    "name": "Zucchini",
+    "price": 0.7
+  }
+]
