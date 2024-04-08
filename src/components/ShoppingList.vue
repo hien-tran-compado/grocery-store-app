@@ -4,7 +4,10 @@
         <ul>
             <li v-for="(shoppingListItem, index) in shoppingList"
             :key="index"
-            >{{shoppingListItem}}</li>
+            ><span>{{shoppingListItem.name}}</span>
+            <span>{{shoppingListItem.price}}</span>
+        
+        </li>
         </ul>
     </div>
 </template>
