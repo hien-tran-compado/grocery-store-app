@@ -8,7 +8,11 @@
             <p class="card-title">{{groceryItem.name}}</p>
             <p class="card-description">${{groceryItem.price}}</p>
         </div> 
-        <BaseButton buttonStyle="outlined">Add</BaseButton> 
+        <BaseButton
+        :groceryItem="groceryItem"
+        buttonStyle="outlined"
+        @click="handleAddToBasket"
+        >Add</BaseButton> 
        </div>
     </div>
   </template>
@@ -31,7 +35,12 @@
             required: true
         }
     },
-
+    methods: {
+        handleAddToBasket () {
+            console.log('AddToBasket',this.groceryItem);
+            this.$emit('AddToBasket',this.groceryItem);
+        }
+    }
   }
   </script>
   
@@ -61,5 +70,5 @@
   }
 
   </style>
-  
+
   
