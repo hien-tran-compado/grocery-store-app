@@ -8,22 +8,30 @@
             <p class="card-title">{{groceryItem.name}}</p>
             <p class="card-description">${{groceryItem.price}}</p>
         </div> 
-        <div class="card-button">
-            <button class="button">Add</button>
-        </div>     
+        <BaseButton buttonStyle="outlined">Add</BaseButton> 
        </div>
     </div>
   </template>
   
   <script>
+  import BaseButton from './BaseButton.vue'
   export default {
     name: 'ItemCard',
+    components: {
+        BaseButton
+    },
+    data() {
+        return {
+            buttonStyle: ''
+        }
+    },
     props: {
         groceryItem : {
             type: Object,
             required: true
         }
-    }
+    },
+
   }
   </script>
   
@@ -48,18 +56,10 @@
     .card-button {
         width: 100%; 
         display: flex; 
-        justify-content: center; 
-        .button {
-            width: 100%; 
-            color: orange;
-            font-weight: bold;
-            border: 1px solid grey;
-            border-radius: 10px;
-            padding: 5px;
-            background-color: white;
-}
+        justify-content: center;
     }
   }
 
   </style>
+  
   
