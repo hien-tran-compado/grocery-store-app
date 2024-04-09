@@ -5,7 +5,7 @@
       <div class="modal-header">
         <h2>{{ title }}</h2>
       </div>
-      <div class="modal-content">
+      <div class="modal-body">
         <slot name="modalContent"></slot>
       </div>
       <div class="modal-footer">
@@ -57,10 +57,19 @@ export default {
   align-items: center;
 }
 
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .modal-content {
   background-color: white;
   padding: 20px;
   border-radius: 10px;
+  z-index: 1000;
 }
 
 .modal-footer {
