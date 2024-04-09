@@ -1,7 +1,7 @@
 <template>
     <button 
     :class="handleButtonStyle"
-    @click="handleClick">                
+		>                
         <slot></slot>
     </button>
 </template>
@@ -10,10 +10,6 @@
 export default {
     name:'BaseButton',
     props: {
-        groceryItem : {
-            type: Object,
-            required: true
-        },
         buttonStyle: {
             type:String,
             default: "outlined"
@@ -27,12 +23,6 @@ export default {
             return this.buttonStyle
         }
     },
-    methods: {
-        handleClick() {
-            console.log('click',this.groceryItem);
-            this.$emit('click',this.groceryItem)
-        }
-    }
 }
 </script>
 

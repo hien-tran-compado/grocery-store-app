@@ -1,18 +1,50 @@
 <template>
   <div id="app">
     <h1>FreshMart Online Grocery Shopping</h1>
-    <div class="container">
+    <BaseModal
+    :title="'Empty Basket'"
+    :visible="showEmptyBasketModal"
+    @close="showEmptyBasketModal = false"
+    @proceed="proceedEmptyBasket"
+    >
+    <template v-slot:modalContent>
+      Are you sure you want to remove all the items in the basket?
+    </template>
+    <template v-slot:modalProceed>
+      Empty basket
+    </template>
+    </BaseModal>
+    
+    <BaseModal
+    :title="'Order Confirmation'"
+    :visible="showCheckoutModal"
+    @close="showCheckoutModal = false"
+    >
+    <template v-slot:modalContent>
+      Proceed to have your order processed and we will deliver to you as soon as we can.
+      Thank you for shopping at FreshMart!
+    </template>
+    <template v-slot:modalProceed>
+      Purchase
+    </template>
+  
+  </BaseModal>
 
+    <div class="container">
       <div class="items-box">
       <ItemCard
-      v-for="(groceryItem, index) in groceryArray"
-      :groceryItem="groceryItem"
-      :key="index"
-      @AddToBasket="handleAddItem"/>
+        v-for="(groceryItem, index) in groceryArray"
+        :groceryItem="groceryItem"
+        :key="index"
+        @AddToBasket="handleAddItem"
+        
+      />
     </div>
     <div class="shopping-list">
       <ShoppingList 
-      :shoppingList="shoppingList"
+       :shoppingList="shoppingList"
+       @showEmptybasketModal="handleShowEmptybasketModal"
+       @showCheckoutModal="handleShowCheckoutModal"
       />
     </div>
     </div>
@@ -24,24 +56,42 @@
 import groceryData from './data/grocery-data.json'
 import ItemCard from './components/ItemCard.vue';
 import ShoppingList from './components/ShoppingList.vue'
+import BaseModal from './components/BaseModal.vue'
 
 export default {
   name: 'App',
   components: {
     ItemCard, 
-    ShoppingList
+    ShoppingList,
+    BaseModal
   },
   data() {
     return {
       groceryArray: groceryData,
-      shoppingList: []
+      shoppingList: [],
+      showEmptyBasketModal: false,
+      showCheckoutModal: false
     }
   },
   methods: {
     handleAddItem(item) {
       this.shoppingList.push(item);
       console.log("add",item);
+    },
+    handleShowEmptybasketModal() {
+      this.showEmptyBasketModal = true
+      console.log(this.showEmptyBasketModal);
+    },
+    handleShowCheckoutModal() {
+      this.showCheckoutModal = true
+      console.log(this.showCheckoutModal);
+    },
+    proceedEmptyBasket() {
+      this.shoppingList = [];
+      this.showEmptyBasketModal = false;
+      this.showCheckoutModal = false;
     }
+
   }
 }
 </script>
@@ -68,7 +118,5 @@ export default {
     padding: 0 20px;
   }
 }
-.items-box {
- 
-}
 </style>
+

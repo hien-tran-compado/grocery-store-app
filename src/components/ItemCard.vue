@@ -9,10 +9,10 @@
             <p class="card-description">${{groceryItem.price}}</p>
         </div> 
         <BaseButton
-        :groceryItem="groceryItem"
-        buttonStyle="outlined"
-        @click="handleAddToBasket"
-        >Add</BaseButton> 
+            buttonStyle="outlined"
+            @click.native="handleAddToBasket()"
+        >Add
+        </BaseButton> 
        </div>
     </div>
   </template>
@@ -44,7 +44,6 @@
   }
   </script>
   
-  
   <style lang="scss">
   .item-card {
     display: flex;
@@ -68,7 +67,6 @@
         justify-content: center;
     }
   }
-
   </style>
 
   
