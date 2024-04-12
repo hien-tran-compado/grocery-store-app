@@ -31,8 +31,8 @@ export default {
 button {
     width: 100%; 
     font-weight: bold;
-    border-radius: 10px;
-    padding: 10px;
+    border-radius: 5px;
+    padding: 5px;
     border: none
 }
 

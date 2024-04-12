@@ -50,7 +50,7 @@
     flex-direction: column;
     border: 1px solid grey;
     box-shadow: 0px 4px 4px 0px #00000040;
-    border-radius: 12px;
+    border-radius: 10px;
     padding: 10px;
     .card-image {
         object-fit: cover;

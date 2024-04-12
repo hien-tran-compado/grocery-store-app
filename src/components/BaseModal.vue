@@ -6,7 +6,7 @@
         <h2>{{ title }}</h2>
       </div>
       <div class="modal-body">
-        <slot name="modalContent"></slot>
+        <slot name="modalText"></slot>
       </div>
       <div class="modal-footer">
         <BaseButton buttonStyle="outlined" @click.native="closeModal">Go back</BaseButton>
@@ -14,9 +14,6 @@
           <slot name="modalProceed"></slot>
         </BaseButton>
       </div>
-
-
-
     </div>
   </div>
 </template>
