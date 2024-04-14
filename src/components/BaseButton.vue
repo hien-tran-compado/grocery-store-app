@@ -33,7 +33,8 @@ button {
     font-weight: bold;
     border-radius: 5px;
     padding: 5px;
-    border: none
+    border: none;
+    cursor: pointer;
 }
 
 button.outlined {

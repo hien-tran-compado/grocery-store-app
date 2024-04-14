@@ -2,7 +2,8 @@
     <div class="item-card">
       <img 
       :src="groceryItem.image_url" 
-      class="card-image">
+      class="card-image"
+      style="max-height: 100px">
       <div class="card-content">
         <div class="card-body">        
             <p class="card-title">{{groceryItem.name}}</p>
@@ -37,7 +38,6 @@
     },
     methods: {
         handleAddToBasket () {
-            console.log('AddToBasket',this.groceryItem);
             this.$emit('AddToBasket',this.groceryItem);
         }
     }
@@ -45,11 +45,14 @@
   </script>
   
   <style lang="scss">
+  html {
+    margin: 10px 50px;
+  }
   .item-card {
     display: flex;
     flex-direction: column;
     border: 1px solid grey;
-    box-shadow: 0px 4px 4px 0px #00000040;
+    // box-shadow: 0px 4px 4px 0px #00000040;
     border-radius: 10px;
     padding: 10px;
     .card-image {

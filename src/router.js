@@ -6,7 +6,7 @@ import HomePage from './application-pages/HomePage.vue';
 Vue.use(VueRouter);
 
 const routes = [
-  {path: '/home',component: HomePage},
+  {path: '/', component: HomePage},
   {path: '/confirmation', component: ConfirmationPage },
 ];
 
