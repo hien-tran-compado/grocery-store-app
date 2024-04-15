@@ -7,14 +7,19 @@
 				<li class="list-header">
 					<span class="item-name">Item</span>
 					<span class="item-price">Price</span>
+					<span class="item-quantity">Quantity</span>
 					<span class="item-subTotal">Subtotal</span>
 					<span class="item-remove"></span>
 				</li>
 				<li class="list-item" v-for="(shoppingListItem, index) in shoppingList" :key="index">
 					<span class="item-name"> {{ shoppingListItem.name }}</span>
-					<span class="item-price">${{ shoppingListItem.price.toFixed(2) }} x {{ shoppingListItem.quantity }}</span>
-					<span class="item-subTotal">${{ calculateItemTotal(shoppingListItem).toFixed(2) }}</span>
-					<span class="item-remove"><button class="item-removeButton" @click="removeItem(index)">x</button></span>
+					<span class="item-price">${{ shoppingListItem.price.toFixed(2) }}</span>
+					<span class="item-quantity">{{ shoppingListItem.quantity }}
+						<button @click="incrementQuantity(index)" class="item-actionButton">+</button>
+						<button @click="decrementQuantity(index)" class="item-actionButton">-</button>
+					</span>
+					<span class="item-subTotal">${{ (shoppingListItem.price * shoppingListItem.quantity).toFixed(2) }}</span>
+					<span class="item-remove"><button class="item-actionButton" @click="removeItem(index)">x</button></span>
 				</li>
 			</ul>
 		</div>
@@ -27,7 +32,6 @@
 		</div>
 		<BaseButton buttonStyle="filled" @click.native="handleCheckout" :disabled="shoppingList.length === 0">Checkout
 		</BaseButton>
-
 	</div>
 </template>
 :
@@ -47,14 +51,18 @@ export default {
 		shoppingList: {
 			type: Array,
 		},
+		total: {
+			type: Number,
+			required: true
+		}
 	},
 	computed: {
-		total() {
-			const totalPrice = this.shoppingList.reduce((total, item) => {
-				return total + this.calculateItemTotal(item);
-			}, 0);
-			return parseFloat(totalPrice.toFixed(2));
-		}
+		// total() {
+		// 	const totalPrice = this.shoppingList.reduce((total, item) => {
+		// 		return total + this.calculateItemTotal(item);
+		// 	}, 0);
+		// 	return parseFloat(totalPrice.toFixed(2));
+		// }
 	},
 	methods: {
 		handleEmptybasket() {
@@ -63,12 +71,15 @@ export default {
 		handleCheckout() {
 			this.$emit('showCheckoutModal');
 		},
-		calculateItemTotal(item) {
-			return item.price * item.quantity
-		},
 		removeItem(index) {
-			this.$emit('removeItem',index)
-		}
+			this.$emit('removeItem', index)
+		},
+		incrementQuantity(index) {
+			this.$emit('incrementQuantity', index)
+		},
+		decrementQuantity(index) {
+			this.$emit('decrementQuantity', index)
+		},
 	}
 }
 </script>
@@ -108,7 +119,12 @@ span.item-name {
 }
 
 span.item-price {
-	width: 25%;
+	width: 35%;
+}
+
+span.item-quantity {
+	width: 35%;
+	text-align: left
 }
 
 span.item-subTotal {
@@ -119,27 +135,26 @@ span.item-subTotal {
 span.item-remove {
 	width: 10%;
 	text-align: right;
+
 	.item-removeButton {
 		background-color: transparent;
 
 		align-items: center;
-		
+
 	}
 }
 
-.item-removeButton {
+.item-actionButton {
 	border: 1px solid grey;
 	box-shadow: 0px 1px 1px 0px #00000040;
 	border-radius: 50%;
 	padding: 0;
-	width: 15px; 
-  height: 15px; 
+	width: 15px;
+	height: 15px;
 }
 
 .basket-total {
 	display: flex;
 	justify-content: space-between;
 }
-
 </style>
-
