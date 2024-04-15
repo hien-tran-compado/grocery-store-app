@@ -136,7 +136,16 @@ body {
     }
 
     @media (min-width: 758px) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    @media (min-width: 992px) {
       grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+
+    @media (min-width: 1440px) {
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     }
   }
 
