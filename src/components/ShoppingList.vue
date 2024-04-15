@@ -21,13 +21,16 @@
 		<BaseButton buttonStyle="outlined" @click.native="handleEmptybasket" :disabled="shoppingList.length === 0">Empty
 			Basket</BaseButton>
 		<hr>
-		<h2>Total: ${{ total.toFixed(2) }}</h2>
+		<div class="basket-total">
+			<h2>Total:</h2>
+			<h2>${{ total.toFixed(2) }}</h2>
+		</div>
 		<BaseButton buttonStyle="filled" @click.native="handleCheckout" :disabled="shoppingList.length === 0">Checkout
 		</BaseButton>
 
 	</div>
 </template>
-
+:
 <script>
 import BaseButton from './BaseButton.vue'
 export default {
@@ -133,4 +136,10 @@ span.item-remove {
   height: 15px; 
 }
 
+.basket-total {
+	display: flex;
+	justify-content: space-between;
+}
+
 </style>
+
