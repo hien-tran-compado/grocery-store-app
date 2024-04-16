@@ -3,31 +3,22 @@
     <h1>FreshMart Online Grocery Shopping</h1>
     <div class="container">
       <div>
-        <button class="sort-button" @click="toggleSortOrder">Price&#8593;&#8595;</button>
         <div class="price-filter">
           <h3>Min Price:</h3>
           <input type="number" class="price-input" v-model="minPrice">
           <h3>Max Price:</h3>
           <input type="number" class="price-input" v-model="maxPrice">
+           <button class="sort-button" @click="toggleSortOrder">Sort&#8593;&#8595;</button>
         </div>
-        
         <div class="items-box">
-          <ItemCard v-for="(groceryItem, index) in filteredGroceryArray" 
-            :groceryItem="groceryItem" 
-            :key="index"
+          <ItemCard v-for="(groceryItem, index) in filteredGroceryArray" :groceryItem="groceryItem" :key="index"
             @AddToBasket="handleAddItem" />
         </div>
       </div>
       <div class="shopping-list">
-        <ShoppingList
-          :shoppingList="shoppingList" 
-          :total="total"
-          @showEmptybasketModal="handleShowEmptybasketModal"
-          @showCheckoutModal="handleShowCheckoutModal"
-          @removeItem="handleRemoveItem"
-          @incrementQuantity="handleIncrementQuantity"
-          @decrementQuantity="handleDecrementQuantity"
-          />
+        <ShoppingList :shoppingList="shoppingList" :total="total" @showEmptybasketModal="handleShowEmptybasketModal"
+          @showCheckoutModal="handleShowCheckoutModal" @removeItem="handleRemoveItem"
+          @incrementQuantity="handleIncrementQuantity" @decrementQuantity="handleDecrementQuantity" />
       </div>
     </div>
     <BaseModal :title="'Empty Basket'" v-if="showEmptyBasketModal" @close="showEmptyBasketModal = false"
@@ -79,11 +70,11 @@ export default {
 
     },
     total() {
-			const totalPrice = this.shoppingList.reduce((total, item) => {
+      const totalPrice = this.shoppingList.reduce((total, item) => {
         return total + (item.price * item.quantity);
-			}, 0);
-			return parseFloat(totalPrice.toFixed(2));
-		}
+      }, 0);
+      return parseFloat(totalPrice.toFixed(2));
+    }
   },
   data() {
     return {
@@ -100,7 +91,7 @@ export default {
     handleAddItem(item) {
       const existingItem = this.shoppingList.find(i => i.name === item.name);
       if (existingItem) {
-        existingItem.quantity+=item.quantity;
+        existingItem.quantity += item.quantity;
       } else {
         this.shoppingList.push(item);
       }
@@ -120,9 +111,9 @@ export default {
       this.$router.push(
         {
           name: 'ConfirmationPage',
-          params: { 
-            shoppingList: this.shoppingList, 
-            total:this.total
+          params: {
+            shoppingList: this.shoppingList,
+            total: this.total
           }
         }
       );
@@ -138,16 +129,16 @@ export default {
       }
     },
     handleRemoveItem(index) {
-      this.shoppingList.splice(index,1);
+      this.shoppingList.splice(index, 1);
     },
     handleIncrementQuantity(index) {
       this.shoppingList[index].quantity++;
     },
     handleDecrementQuantity(index) {
-      if (this.shoppingList[index].quantity>1) {
-      this.shoppingList[index].quantity--;
+      if (this.shoppingList[index].quantity > 1) {
+        this.shoppingList[index].quantity--;
       } else {
-        this.shoppingList.splice(index,1);
+        this.shoppingList.splice(index, 1);
       }
     }
   }
@@ -159,13 +150,16 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
 }
+
 .container {
   display: flex;
+
   .sort-button {
     background-color: white;
     border: 1px solid grey;
-    margin: 0 0 5px 0;
+    /* margin: 0 0 5px 0; */
   }
+
   .items-box {
     flex: 4;
     display: grid;
@@ -192,15 +186,22 @@ body {
 
   .shopping-list {
     flex: 1;
+    position: fixed;
+    top: 10px; 
+    right: 10px; 
+    bottom: 10px;
     padding: 0 20px;
     border: 1px solid grey;
     margin: 0 0 0 10px;
   }
+
   .price-filter {
     display: flex;
+    justify-content: left;
+    height: 50px;
+    text-align: center;
+    margin: 20px;
   }
-  .price-input {
-    width: 80px;
-  }
+
 }
 </style>
